@@ -5,15 +5,19 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def Teste_Positivo(v_Perfil,v_Aplicar,v_Investir,v_Tempo,v_medida):
-   
+
+        file=open("D:\\Python\\Sicredi\\RelatorioExecução.txt",mode="a+",encoding="utf-8")
+        file.write("\n")
+        file.write("Inicio Teste Positivos")
+        file.write("\n")
+        
         driver = webdriver.Firefox()
         #Acessa o site
         driver.get("https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/")
 
-
-        print("Valor aplicado: "+v_Aplicar+ " Valor Investido: "+v_Investir+ " por "+v_Tempo +" "+v_medida )
+        file.write("Valor aplicado: "+v_Aplicar+ " Valor Investido: "+v_Investir+ " por "+v_Tempo +" "+v_medida )
+        file.write("\n")
         #Seleciona o perfil
-        print(v_Perfil)
         driver.find_element_by_css_selector("input[type='radio'][value='"+v_Perfil+"']").click()
 
         #Encontra o campo Qual o valor que você quer aplicar?*
@@ -39,15 +43,20 @@ def Teste_Positivo(v_Perfil,v_Aplicar,v_Investir,v_Tempo,v_medida):
         wait = WebDriverWait(driver, 10)
         #Verifica valor guardado
 
-
         if driver.find_element_by_class_name("valor"):
-                print("Em "+v_Tempo+" "+v_medida+" você terá guardado")
+                file.write("\n")
+                file.write("Em "+v_Tempo+" "+v_medida+" você terá guardado")
                 wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, '.btnRefazer')))
-                print(driver.find_element_by_class_name("valor").text)
-                ##               driver.implicitly_wait(10) # seconds
+                file.write("\n")
+                file.write(driver.find_element_by_class_name("valor").text)
                 driver.find_element_by_css_selector('.btnRefazer').click()
         else:
-                print("Falhou")
-        print("Fim do Teste")
+                file.write("\n")
+                file.write("Falhou")
+        file.write("\n")
+        file.write("Fim do Teste")
+        file.write("\n")
+        file.close()
+        
         driver.quit()
 

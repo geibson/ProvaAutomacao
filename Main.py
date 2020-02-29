@@ -2,13 +2,13 @@ from page_objects import PageObject, PageElement
 import Negativo as n
 import Positivo as p
 import ApiTest as t
-import Data as d
+#import Data as d
 import fileinput
 import re
 import csv
 import xlrd 
 
-d.periodo()
+#d.periodo()
 
 #print("Teste_API")
 t.test_Api()
@@ -38,4 +38,4 @@ for i in range(sheetn.nrows):
     n.Teste_Negativo(str(sheetn.cell_value(1,0)),str(sheetn.cell_value(i,1)),str(sheetn.cell_value(i,2)),str(sheetn.cell_value(i,3)),str(sheetn.cell_value(1,4)))
 print("Fim Testes Negativos")
 
-d.periodo()
+#d.periodo()

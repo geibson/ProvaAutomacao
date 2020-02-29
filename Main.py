@@ -23,7 +23,7 @@ sheetp.cell_value(0,0)
 
 for i in range(sheetp.nrows):
     p.Teste_Positivo(str(sheetp.cell_value(i,0)),str(sheetp.cell_value(i,1)),str(sheetp.cell_value(i,2)),str(sheetp.cell_value(i,3)),str(sheetp.cell_value(0,4)))
-    p.Teste_Positivo(str(sheetp.cell_value(i,0)),str(sheetp.cell_value(i,1)),str(sheetp.cell_value(i,2)),str(sheetp.cell_value(i,3)),str(sheetp.cell_value(1,4))
+    p.Teste_Positivo(str(sheetp.cell_value(i,0)),str(sheetp.cell_value(i,1)),str(sheetp.cell_value(i,2)),str(sheetp.cell_value(i,3)),str(sheetp.cell_value(1,4)))
 
 print("Fim Testes Positivos")
 print("Testes Negativos")
